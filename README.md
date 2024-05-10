@@ -18,15 +18,25 @@
 ### Dataset
 We validate the effectiveness of our model in the real world dataset [MIND](https://msnews.github.io/)
 
+|Datasets|#news|#user|#categories|#impressions|#click
+|-|-|-|-|-|-|
+|MIND-small|65,238|50,000|18|230,117|347,724|
+|MIND-large|161,013|1,000,000|20|15,777,377|24,155,470
+
 ___
 ## Training
 
-single GPU (cuda:0)
+process the download dataset MIND
+```
+python data_pro.py small bert
+```
+
+training model with single GPU (cuda:0)
 ```
 sh run1.sh debug 0 MPNR mind_small
 ```
 
-multi GPU (cuda:0,1,2,3)
+training model with multi GPU (cuda:0,1,2,3)
 ```
 sh run1.sh run 0,1,2,3 MPNR mind_small
 ```
